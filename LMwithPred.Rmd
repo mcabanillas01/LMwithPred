@@ -10,7 +10,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Introduction  
-This is the linear model with prediction problem. Predict strength scores using data from the following web site  
+This is the linear model with prediction problem. Predict strength scores using data from the following web site
+
+$H_0$ The null hypothesis is there is no difference in these models.  
+$H_A$ There is a difference in the models when they are predicting the strength in the GRIP and ARM. 
 
 ```{r}
 data <- read.csv(file="http://onlinestatbook.com/case_studies_rvls/physical_strength/data.txt",sep="",header=TRUE) 
@@ -73,3 +76,8 @@ model.3 <- lm(SIMS~ARM+GRIP,data=data)
 summary.lm(model.3)
 predict.lm(model.1,New,interval="prediction")
 ```
+
+```{r}
+anova(model.1,model.3)
+```
+Based on the p value we reject the null hypothesis and conclude as we saw with the adjusted r-square that model 2 is a better predictor than model 1.
