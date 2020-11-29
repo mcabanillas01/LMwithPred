@@ -42,6 +42,8 @@ basicNN + geom_point() +  geom_smooth(method=lm)
 ```{r}
 model.1 <- lm(SIMS~ARM,data=data)
 summary.lm(model.1)
+New=data.frame(GRIP=94,ARM=88)
+predict(model.1,data=New)
 ```
 
 ###Plot scatterplot
