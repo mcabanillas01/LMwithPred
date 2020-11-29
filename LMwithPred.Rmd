@@ -64,3 +64,8 @@ basicNN + geom_point() +  geom_smooth(method=lm)
 model.2 <- lm(SIMS~GRIP,data=data)
 summary.lm(model.2)
 ```
+
+```{r}
+model.3 <- lm(SIMS~ARM+GRIP,data=data)
+summary.lm(model.3)
+```
